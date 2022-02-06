@@ -2,7 +2,7 @@
 
 from genericpath import isdir
 from os import listdir, rename
-from os.path import isfile, join, getctime, splitext, dirname
+from os.path import isfile, join, getctime, splitext, dirname, getmtime
 from datetime import datetime
 import re
 import argparse
@@ -21,7 +21,7 @@ def rename_files(path_to_file, regEx):
     browse_dir(path_to_file, regEx, files)
     for file in files:
         try:
-            new_file_name = datetime.fromtimestamp(getctime(file)).strftime("%Y_%m_%d_%H_%m_%s")
+            new_file_name = datetime.fromtimestamp(getmtime(file)).strftime("%Y_%m_%d_%H_%M_%S")
             extention = splitext(file)[1]
             file_path = dirname(file)
             rename(file, join(file_path, new_file_name+extention))
