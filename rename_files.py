@@ -1,9 +1,8 @@
 #!/usr/bin/python
 
 from genericpath import isdir
-import sys
 from os import listdir
-from os.path import isfile, join, sep
+from os.path import isfile, join
 import re
 import argparse
 
